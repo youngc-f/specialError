@@ -8,28 +8,23 @@
 	<style type="text/css">
 		*{margin:0px;padding:0px;list-style: none}
 		#div1{width: 300px;height:300px;position: absolute;left: 50%;top:50%;margin:-150px -150px;border: 1px solid black;box-shadow: 0px -30px 30px 0 red}
-
-
 		#div2{width:150px;height:150px;position: absolute;left: 50%;top:50%;margin-left:-150px;border: 1px solid black;box-shadow: 0px -30px 30px 0 red}
 	</style>
 </head>
 <body>
 	<div id="div1" v-shadow></div>
-	<div id="div2"></div>	
+	<div id="div2" v-shadow></div>	
 </body>
 	<script type="text/javascript">
 		Vue.directive("shadow",function(){
 			console.log(this.el);
 			var _this=this;
-			document.onmousemove=function(e){
+			document.addEventListener("mousemove",function(e){
 				var ev=e||event;
 				var needx=ev.clientY/innerHeight;
 				var needy=ev.clientX/innerWidth;
-				console.log(30+(-600*needx));
-				console.log(30+(-600*needy));
-				_this.el.style.boxShadow=(30+(-60*needx))+"px "+(30+(-60*needy))+"px 30px 0px blue";		
-
-			}
+				_this.el.style.boxShadow=(30+(-60*needx))+"px "+(30+(-60*needy))+"px 30px 0px blue";	
+			})
 		});
 		
 		new Vue({
@@ -37,4 +32,4 @@
 		})
 	</script>
 </html>
-//总结：第30行代码最为关键，注意其中"px "  px后面是有空格的，避免代码挤在一起，浏览器无法识别。
+//总结：第26行代码最为关键，注意其中"px "  px后面是有空格的，避免代码挤在一起，浏览器无法识别。
