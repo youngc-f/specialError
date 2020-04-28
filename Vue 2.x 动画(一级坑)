@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="bower_components\vue\dist\vue.js"></script>
+	<style type="text/css">
+		.box{
+			width: 200px;height:200px;
+			position:absolute;left: 50%;
+			background: red;
+		}
+		.dong-enter-active{           //定义类时:.dong-enter-active→.dong-enter  顺序不能颠倒,不然效果出不来
+			width: 200px;height:200px;
+			left: 50%;background: blue;
+			opacity: 1;
+		}
+		.dong-enter{
+			width: 100px;height: 100px;
+			left: 20%;background: green;
+			opacity: 0;
+		}
+		.dong-enter-active,.dong-leave-active{
+			transition: 1s ;
+		}
+		.dong-leave{
+			width: 200px;height:200px;
+			background: green
+		}
+		.dong-leave-active{
+			width: 50px;height:50px;
+			background: yellow;opacity: 0;
+    }
+	</style>
+</head>
+<body>
+	<div id="root">
+			<input type="button" value="点击改变" name="" @click="cg"> 
+		<transition name="dong">
+			<div class="box" v-show="show"></div>     //这里必须为class="XX",不然效果出不来
+		</transition>
+
+	</div>
+<script type="text/javascript">
+	new Vue({
+		el:"#root",
+		data:{
+			show:false,
+
+		},
+		methods:{
+			cg:function(){
+				this.show=!this.show;	
+			},
+		}
+
+	})
+</script>
+
+</body>
+</html>
