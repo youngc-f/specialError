@@ -1,0 +1,16 @@
+data() {
+    return {
+      swiperOptions: {
+        autoplay: {       // 自动轮播
+          delay: 1000,    //delay 多长时间切换一次 
+          disableOnInteraction: false
+        },
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination"
+        }
+      },
+      .........
+  },
+  
+  //注意:备注区,写成autoplay:1000 是无效的,需要写成autoplay:{}格式 重点:delay非字面意思(延迟),而是表示多长时间切换一次
