@@ -1,0 +1,127 @@
+cmd 环境报错:configuration.module has an unknow property 'loaders'.these property are inv
+
+解决:webpack v2 之后都用rules 了，把webpack.config.js  中的module里的那个loaders改成rules
+
+=====================
+node.js的 text.js文件在cmd环境下运行时,text.js文件所在的文件夹不要放node.js,不然会报错:Windows script host
+
+==========================================================
+ if (width==window.innerWith)    //    window不写时报错
+===========================================
+    btn1.onclick=function(){}        //    写成了onclik
+==============================================
+ document.body.style.background='rgb('+toNum()+","+toNum()+","+toNum()+')'        //rgb的值不能由“”括起来
+================================================
+
+if (mydiv1.style.background="yellow" && mydiv2.style.background="yellow") {
+            alert('都是黄色')}
+报错:Invalid left-hand side in assignment
+解决:=改为==
+================================================
+
+        if (mydiv1.style.background=="yellow" && mydiv2.style.background=="yellow") {
+            alert('都是黄色')};
+        else {alert("至少有一个不是黄色")};
+报错:Unexpected token 'else'
+解决:if结束,else之前,没有;        //去掉;
+=====================================================
+
+
+for(j=0;j<20;j+=2;)
+报错:Unexpected token ';
+解决:去掉j+=2 后面的;
+=====================================================
+
+        myDiv2=document.getElementsByClass('myDiv2');
+报错:zuoye--1.html:33 Uncaught TypeError: document.getElementsByClass is not a function
+解决:document.getElementsByClassName
+=====================================================
+
+    tInput=document.creatElement('input');
+报错:document.creatElement is not a function
+解决:create
+
+==========================================
+
+        *{margin: 0;padding: 0};
+        iframe{position: absolute;width: 50%;height: 100%;}
+        #t{right:0px;width:30%;}
+报错:无        //iframe  定义的属性无效
+解决:去掉第一行末尾的;    注意:<style></style>中定义的属性,末尾不要加;
+============================
+
+btn=getElementsById('btn');
+报错:getElementsById is not defined
+解决:少了document.
+===============
+
+document.body.innerHtml="<div><div>"
+报错:不报错,无执行效果
+解决:1.innerHTML大写;2.后一个<div>加一/
+    ocument.body.innerHTML="<div></div>"
+====================
+
+document.createElement('#')        //#为标签时,需要引号,#不为标签时,不需要""
+        innerHTML                                            //后面的赋值为标签时,需要''
+        appendChild()                                //后面不需要""
+====================
+
+代码:var a=document.CreateElement("div");
+报错:document.CreateElement is not a function
+解决:create    为小写
+==================
+
+代码:<a herf="#" ; class="log"><img src="image\log.gif"></a>
+报错:不报错   但是a标签的类效果没有
+解决:去掉中间的;
+========
+
+代码:
+报错:定义的样式没有显示出来,也检测不到   但是在编辑器中是对应的??矛盾的问题
+解决:类名是对的   但后代选择器的位置不对   即正文的层级与选择器定义的结构层级不相符(串了)
+====
+cmd环境下cnpm 下载安装包时报错:Cannot find module 'bug-versions/package.json
+解决: 使用npm install --save-dev  自动配置package.json,然后会自动安装所需的依赖
+------------------------
+node.js  使用最新的body-parser 报错:body-parser deprecated undefined extended: provide extended option app.js:7:23
+
+const express = require('express');
+const server = express();
+const bodyParser = require('body-parser');
+server.listen(2183);
+server.use(bodyParser.urlencoded({}));
+解决: server.use(bodyParser.urlencoded({}));
+改为;server.use(bodyParser.json());
+注意:不是报错,原老师不理会这个问题~~~~~~~~
+----------------------------------------------------------------------------------------------------------------------------------------------
+_this.el.style.boxShadow=(30+(-60*needx))+"px "+(30+(-60*needy))+"px 30px 0px blue";
+注意:"px " px后面有空格,避免代码挤在一起,浏览器识别不了
+~~~~~~~~~~~~~~~~~~`
+vue   使用function     报错  Unexpected identifier
+解决:去掉function
+~~~~~~~~~~~~~~~~~~`
+src="..........."       路劲识别不了反斜杠,只能识别正斜杠/
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   <meta charset="utf-8">
+//utf-8    不是utf/8
+
+<head>
+    <title>列表设置</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+    ul.disc{list-style-type: disc;}
+    ul.decimal{list-style-type: decimal;}
+    ul.circle{list-style-type: circle;}
+    ul.squre{list-style-type: squre;}
+    ul {list-style-image: url( "..\Picture\03.jpg");}
+    ol {list-style-image: url("..\Picture\04.jpg");}    
+    </style>
+</head>
+<body>
+    <ul class="ul.disc">
+    <li>第一步</li>
+    <li>第二部</li>
+    <li>第三步</li>
+    <li>第四步</li>
+图像不显示
+list-style-position属性设置列表项目符号的位置及列表项的对齐方式，取值 outside | inside，默认值为 outside。
