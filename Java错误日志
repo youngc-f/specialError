@@ -1,0 +1,345 @@
+java.lang.nullpointerexception  解决方法：用try语句把它捕获，例如try{//把你认为可能发生异常的代码段放在这里}catch(NullPointerException e){System.out.println("发生异常的原因为 :"+e.getMessage());}正如上述！！如果发生异常的话！！！他就会在DOS窗口下打印出发生异常的原因！！！
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+Demo_11_10.java:21: 错误: comp 在 teacher 中是 private 访问控制
+                        System.out.println(t.comp);//*****************************空指针异常，追踪结果为comp查找不到
+//原因：
+私有话的成员不能由类名直接调用，私有化的成员只能由方法调用
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+ExceptionDemo_11_4.java:5: 错误: 缺少数组维
+                int[] arr=new int[];
+//原因：
+数组为空，表达式为：int[] arr=null;
+                        或者：int[] arr=new int[0];
+------------------------------------------------------------------------------------------------------------------------------------
+
+java语法错误，进行分析时已经到达文件结尾
+
+//原因：
+分析已达到文件结尾一般是括号没有闭合，或者缺少了分号
+------------------------------------------------------------------------------------------------------------------------------------
+代码：
+abstract class Animals
+{
+    /*abstract*/ void eat();
+
+}
+
+
+
+D:\JAVA\练习\day 10>javac DuTai_10_3.java
+DuTai_10_3.java:20: 错误: 缺少方法主体, 或声明抽象
+        /*abstract*/ void eat();
+
+//抽象类中的方法必须是抽象方法。
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+D:\JAVA\练习\day 10>javac BookPc_10_1.java
+BookPc_10_1.java:12: 错误: 需要'('或'['
+                useUsb(new Mouse );
+                                 ^
+BookPc_10_1.java:17: 错误: 不是语句
+                u.open;
+                 ^
+BookPc_10_1.java:18: 错误: 不是语句
+                u.close;
+                 ^
+BookPc_10_1.java:25: 错误: 接口抽象方法不能带有主体
+        {}
+        ^
+BookPc_10_1.java:27: 错误: 接口抽象方法不能带有主体
+        {}
+
+//  useUsb(new Mouse（） );u.open（）; u.close（）;
+1 创建匿名对象在对象后加（）；
+2 对象调用函数时，函数名后需加（）；
+3 接口抽象方法不能带有主体，改{}为；
+
+------------------------------------------------------------------------------------------------------------------------------------
+》》
+D:\JAVA\练习\day 09>javac extends_9_3.java
+extends_9_3.java:38: 错误: 无法从静态上下文中引用非静态 方法 show()
+                show();
+
+                ^
+// 在静态主函数中，使用类调用非静态函数，可实现静态兼容
+------------------------------------------------------------------------------------------------------------------------------------
+代码：
+class Staticcode
+{
+    static int num;
+    System.out.println(num);
+    static
+    {
+           System.out.println(num);
+
+    }
+    //System.out.println(num);
+    void show()
+    {
+            System.out.println("show run");
+    }
+}
+
+》》
+D:\JAVA\练习\day 07>javac StaticDemo_7_17.java
+StaticDemo_7_17.java:15: 错误: 需要<标识符>
+        System.out.println(num);
+//类里面不能有直接输出的语句
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+代码：
+class test
+{
+    public static void main(String[] args)
+    {
+        System.out.println(haha());
+    }
+    static void haha()
+    {
+        System.out.println("heheh");
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------
+》》
+D:\JAVA\练习\day 07>javac test.java
+test.java:5: 错误: 此处不允许使用 '空' 类型
+                System.out.println(haha());
+                                       ^
+//输出语言重复
+------------------------------------------------------------------------------------------------------------------------------------
+
+代码：
+    public static void main(String[] args)
+    {
+        Person p1=new Person (22,"小张");
+        Person p2=new Person (33,"小王");
+        System.out.println(p1compare(p2));
+
+    }
+》》
+D:\JAVA\练习\day 07>javac Construction_7_9.java
+Construction_7_9.java:7: 错误: 找不到符号
+                p1compare(p2);
+//   System.out.println(p1.compare(p2));在p1后增加.
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+》》D:\JAVA\练习\day 06>javac personDemo_6_14.java
+personDemo_6_14.java:7: 错误: age 在 person 中是 private 访问控制
+                p.age=-20;
+// 对象 private的语句在主函数中不能直接定义访问。
+------------------------------------------------------------------------------------------------------------------------------------
+代码：
+class person
+{
+    int age;
+    /* static*/ void speak()
+    {
+            System.out.println("age="+age);
+    }
+}
+》》D:\JAVA\练习\day 06>javac personDemo_6_14.java
+personDemo_6_14.java:20: 错误: 无法从静态上下文中引用非静态 变量 age
+                    System.out.println("age="+age);
+// 去掉static
+    用static修饰的方法称为静态方法，修饰变量则为静态变量，又分别叫做类方法或者类变量。
+静态方法中不能直接调用非静态方法。因为非静态方法不是独立存在的，它是依附于对象存在——即只有申明了对象，才能通过对象调用。而静态方法则可以直接通过类名调用，而不需要申明对象。因此直接引用非静态方法就会出错。
+比如常见的main方法都是静态的，必须由static修饰，因此在main方法里调用类的其他非静态方法，都是需要先申明对象，才能用。否则就会出现引用非静态方法的错误。
+要解决这个问题，可以去除一般方法的static关键字（如果是main方法，则不能去掉static）。另外一种方法就是把需要引用的方法也设置成静态方法。
+------------------------------------------------------------------------------------------------------------------------------------
+》》D:\JAVA\练习\day 04>javac getWeek_5_14.java
+getWeek_5_14.java:7: 错误: 找不到符号
+        static string getWeek(int num)
+               ^
+  符号:   类 string
+  位置: 类 getWeek_5_14
+getWeek_5_14.java:13: 错误: 找不到符号
+                string arr[] ={" ","星期一","星期二","星期三","星期四","星期五","星期六","星期日"};
+                ^
+  符号:   类 string
+  位置: 类 getWeek_5_14
+2 个错误
+//字符串 string在定义函数类型和定义数组类型时，首字母要大写。
+------------------------------------------------------------------------------------------------------------------------------------
+   2019/9/23 11:33 
+代码：
+//import.java.until.*;
+class toHex_5_12
+//查表法十进制数据转换其他进制
+{
+    public static void main(String[] args)
+    {
+        //trans(22,15,4);            
+        toHex(22);
+        System.out.println(Integer.toHexString(22)) ;
+        toOctal(22);
+        System.out.println(Integer.toOctalString(22)) ;
+        toBinary(22);
+        System.out.println(Integer.toBinaryString(22)) ;
+
+    }
+注意：
+//1、进制转换需要输出语句sop；2、进制转换不需要导入类包：import.java.until.*;
+------------------------------------------------------------------------------------------------------------------------------------
+
+     char[] arr=new char[32];
+        int i=0;
+        while (num!=0)
+        {
+            arr[i++]=sheet[num&base];
+            num=num>>>right;
+        }
+        System.out.println(num);
+        for (int i=arr.length-1;i>=0;i++)
+        {
+            System.out.print(arr[i]);
+        }
+》》D:\JAVA\练习\day 04>javac toHex_5_12.java
+toHex_5_12.java:29: 错误: 已在方法 trans(int,int,int)中定义了变量 i
+                for (int i=arr.length-1;i>=0;i++)
+//将第二个 int 去掉
+------------------------------------------------------------------------------------------------------------------------------------
+》》D:\JAVA\练习\day 04>javac toHex_5_12.java
+toHex_5_12.java:21: 错误: 缺少数组维
+                char[] arr=new char[];
+// 数组初始化没定义长度
+------------------------------------------------------------------------------------------------------------------------------------
+  if (y>9)
+            {
+                System.out.print(char)(y-10+'A'));
+            }
+            else
+            System.out.print(y);
+
+
+》》toHex_5_11.java:14: 错误: 需要 '.class'
+                                System.out.print(char (y-10+'A'));
+                                                      ^
+toHex_5_11.java:14: 错误: 需要';'
+                                System.out.print(char (y-10+'A'));
+                                                       ^
+toHex_5_11.java:14: 错误: 不是语句
+                                System.out.print(char (y-10+'A'));
+                                                           ^
+toHex_5_11.java:14: 错误: 需要';'
+                                System.out.print(char (y-10+'A'));
+
+                                                               ^
+// char 需要用括号括起来  （char）
+------------------------------------------------------------------------------------------------------------------------------------
+
+D:\JAVA\练习\day 04>javac halfSearch_5_10.java
+halfSearch_5_10.java:13: 错误: 找不到符号
+                int index=Arrays.binarysearch(arr_1,88);
+                                ^
+  符号:   方法 binarysearch(int[],int)
+  位置: 类 Arrays
+1 个错误
+
+//binarysearch   S需要大写 
+
+------------------------------------------------------------------------------------------------------------------------------------
+代码：public static void main(String[] args)
+    {
+        int x=1;
+        while (x++<3)
+        {
+            System.out.println("Hello World!");
+        }
+        return -1;
+    }
+》》错误: 不兼容的类型: 意外的返回值
+                return -1;
+//主函数中 return 返回-1的值不知给谁，造成报错。
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+        while (min<=max)
+        {
+            int    mid=(min+max)/2;
+
+            if (num>arr[mid])
+            {
+                min=mid+1;
+            }
+            else if (num<arr[mid])
+            {
+                max=mid-1;
+            }
+            else
+            return mid;
+        }
+        return -1;
+// while（）
+   {
+   }
+   return
+该语句，1、定义的函数中，return执行后，后面的语句执行不到；2、return作用范围为整个函数；3、void函数可无return，其他类型函数必须有return。
+------------------------------------------------------------------------------------------------------------------------------------
+代码：if (num=arr[x])
+            {
+                return x;
+            }
+》》错误: 不兼容的类型: int无法转换为boolean
+                        if (num=arr[x])
+// if (num==arr[x])
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+代码：int temp=arr[a];
+            arr[a]=arr[b];
+            arr[b]=int temp;   
+
+
+   
+ 》》错误: 需要 '.class'
+                        arr[b]=int temp; 
+//去掉第三行 int
+-----------------------------------------------------------------------------------------------------------------------------------        
+》》D:\JAVA\学习\day 04>javac changeSort_5_5.java
+changeSort_5_5.java:10: 错误: 找不到符号
+                System.out.print(Arrays.sort(arr_1));   
+ /*
+ import java.util.*;导入 java.util包中的类接口。import java.util.*;导入 java.util包中的类接口。
+Java中import的作用是导入要用到的包中的类接口。import就是在java文件开头的地方，先说明会用到那些类别。 接着我们就能在代码中只用类名指定某个类，也就是只称呼名字，不称呼他的姓。这其中包的作用就是给java类进行分拣分类，不同业务逻辑的java类放在同一个包中。比如实体包，工具包。
+*/
+-----------------------------------------------------------------------------------------------------------
+》》D:\JAVA\学习\day 04>javac changeSort.java
+changeSort.java:6: 错误: 需要 '.class'
+                seletSort(int[] arr_1);
+                                ^
+
+changeSort.java:6: 错误: 需要';'
+                seletSort(int[] arr_1);      //seletSort(arr_1);  已定义，直接用数组名
+------------------------------------------------------------------------------------------------------------------------------------
+》》arr_getMax.java:12: 错误: 找不到符号
+                for (x=1;x<arr.length ;x++ )    //x未定义类型
+》》arr_getMax.java:6: 错误: 需要 '.class'
+                int a=getMax(int[]arr_1);       //  int a=getMax(arr_1)
+》》Exception in thread "main" java.lang.NullPointerException
+        at demoArrName.main(demoArrName.java:12)     //NullPointerException  1、当引用型变量没有任何实体指向时，还在用其操作实体，就会发生该异常；2、脚标越界异常
+------------------------------------------------------------------------------------------------------------------------------------
+》》错误: 找不到或无法加载主类           // classpath 未设置
+》》D:\>cd:D:\JAVA\学习\day 05
+文件名、目录名或卷标语法不正确。    //cd后无：
+》》 cmd 窗口关闭     //输入exit，然后回车
+
+》》错误: 程序包system不存在
+                        system.out.print("hello bady");     //system中S未大写
+》》demoDraw.java:9: 错误: 需要';'
+                for(intx=0,x<=row,x++)           //for （；；）
+》》demoDraw.java:11: 错误: 找不到符号
+                        for(inty=0;y<=col;y++)        //int 与y之间有空格
+》》D:\JAVA\学习\day 06>javac demoPrint99.java
+demoPrint99.java:13: 错误: 非法字符: '\'
+                              System.out.print(x+"*"+y=x*y+\t); //  \t转义字符需要用（''）单引用括
